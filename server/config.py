@@ -22,3 +22,13 @@ db.init_app(app)
 api = Api(app)
 
 CORS(app)
+
+from controllers.artist_controller import Artists, ArtistByID
+from controllers.project_controller import Projects, ProjectByID
+from controllers.collaboration_controller import Collaborations
+
+api.add_resource(Artists, '/artists')
+api.add_resource(ArtistByID, '/artists/<int:id>')
+api.add_resource(Projects, '/projects')
+api.add_resource(ProjectByID, '/projects/<int:id>')
+api.add_resource(Collaborations, '/collaborations')
