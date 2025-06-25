@@ -11,8 +11,11 @@ Werkzeug = "2.2.2"
 flask-migrate = "*"
 sqlalchemy-serializer = "*"
 flask-restful = "*"
-flask-cors = "*"
 faker = "*"
+psycopg2-binary = "*"
+flask-cors = "*"
 
 [requires]
 python_full_version = "3.8.13"
+
+[dev-packages]
