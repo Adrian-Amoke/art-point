@@ -12,9 +12,11 @@ function NavBar({ user, setUser }) {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" >
       <Container>
         <Navbar.Brand as={Link} to="/">ArtCollab</Navbar.Brand>
+        <Navbar.Toggle aria-controls="nav" />
+
         <Nav className="me-auto">
           <Link className="nav-link" to="/artists">Artists</Link>
           <Link className="nav-link" to="/projects">Projects</Link>
@@ -34,6 +36,7 @@ function NavBar({ user, setUser }) {
             <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
           )}
         </Nav>
+
       </Container>
     </Navbar>
   );
