@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import API_BASE_URL from "../config";
 
 function CollaborationForm({ projectId, artistId, onClose, onSuccess }) {
   const [contributionNote, setContributionNote] = useState("");
@@ -9,7 +10,7 @@ function CollaborationForm({ projectId, artistId, onClose, onSuccess }) {
     e.preventDefault();
     setError(null);
 
-    fetch("http://localhost:5555/collaborations", {
+    fetch(`${API_BASE_URL}/collaborations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import API_BASE_URL from "../config";
 
 function CollaborationsPage() {
   const [collaborations, setCollaborations] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5555/collaborations")
+    fetch(`${API_BASE_URL}/collaborations`)
       .then((res) => res.json())
       .then(setCollaborations);
   }, []);

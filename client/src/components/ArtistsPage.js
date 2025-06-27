@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import API_BASE_URL from "../config";
 
 function ArtistsPage({ user }) {
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5555/artists")
+    fetch(`${API_BASE_URL}/artists`)
       .then((res) => res.json())
       .then(setArtists);
   }, []);

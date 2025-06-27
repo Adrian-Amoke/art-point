@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
+import API_BASE_URL from "../config";
 
 function ProjectForm({ user }) {
   const formik = useFormik({
@@ -10,7 +11,7 @@ function ProjectForm({ user }) {
       artist_id: user ? user.id : "",
     },
     onSubmit: (values) => {
-      fetch("http://localhost:5555/projects", {
+      fetch(`${API_BASE_URL}/projects`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

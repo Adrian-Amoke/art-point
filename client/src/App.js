@@ -8,6 +8,7 @@ import ProjectForm from "./components/ProjectForm";
 import HomePage from "./components/HomePage";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import API_BASE_URL from "./config";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -15,7 +16,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:5555/artists", {
+      fetch(`${API_BASE_URL}/artists`, {
         headers: { "x-access-token": token },
       })
         .then((res) => res.json())

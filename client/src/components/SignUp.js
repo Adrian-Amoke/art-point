@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import API_BASE_URL from "../config";
 
 function SignUp({ setUser }) {
   const [name, setName] = useState("");
@@ -11,7 +12,7 @@ function SignUp({ setUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5555/signup", {
+    fetch(`${API_BASE_URL}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password, bio }),

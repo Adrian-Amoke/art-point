@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import API_BASE_URL from "../config";
 
 function SignIn({ setUser }) {
   const [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ function SignIn({ setUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5555/signin", {
+    fetch(`${API_BASE_URL}/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

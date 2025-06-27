@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CollaborationForm from "./CollaborationForm";
+import API_BASE_URL from "../config";
 
 function ProjectsPage({ user }) {
   const [projects, setProjects] = useState([]);
   const [showFormForProject, setShowFormForProject] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5555/projects")
+    fetch(`${API_BASE_URL}/projects`)
       .then((res) => res.json())
       .then(setProjects);
   }, []);
