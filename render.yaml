@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: art-point-backend
+    env: python
+    plan: free
+    buildCommand: pipenv install
+    startCommand: pipenv run python server/app.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      # Add other environment variables as needed
+
+  - type: static-site
+    name: art-point-frontend
+    env: static
+    plan: free
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/build
