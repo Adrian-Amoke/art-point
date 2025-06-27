@@ -34,6 +34,7 @@ Pygments==2.19.2
 python-dateutil==2.9.0.post0
 pytz==2025.2
 pytest==7.4.2
+PyJWT==2.7.0
 six==1.17.0
 SQLAlchemy==2.0.41
 SQLAlchemy-serializer==1.4.12
