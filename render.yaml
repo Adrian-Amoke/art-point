@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: pipenv install
-    startCommand: pipenv run python -m server.app
+    startCommand: pipenv run python server/app.py
     envVars:
       - key: FLASK_ENV
         value: production
