@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_migrate import Migrate
-from config import app, db
+from server.config import app, db
 
 migrate = Migrate(app, db)
 

@@ -5,8 +5,9 @@ from random import choice as rc
 from faker import Faker
 
 # Local imports
-from app import app
-from models import db, Artist, Project, Collaboration
+from werkzeug.security import generate_password_hash
+from server.app import app
+from server.models import db, Artist, Project, Collaboration
 
 if __name__ == '__main__':
     fake = Faker()
@@ -19,9 +20,11 @@ if __name__ == '__main__':
         print("Creating fake artists")
         artists = []
         for _ in range(5):  
+            password = generate_password_hash("password123", method='pbkdf2:sha256')
             artist = Artist(
                 name=fake.name(),
                 email=fake.unique.email(),
+                password=password,
                 bio=fake.sentence(nb_words=6)
             )
             db.session.add(artist)

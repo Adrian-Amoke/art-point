@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request
-from models import Project
-from config import db
+from server.models import Project
+from server.config import db
 
 class Projects(Resource):
     def get(self):

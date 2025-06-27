@@ -31,10 +31,10 @@ api = Api(app)
 
 CORS(app)
 
-from controllers.artist_controller import Artists, ArtistByID
-from controllers.project_controller import Projects, ProjectByID
-from controllers.collaboration_controller import Collaborations
-from controllers.auth_controller import SignUp, SignIn
+from server.controllers.artist_controller import Artists, ArtistByID
+from server.controllers.project_controller import Projects, ProjectByID
+from server.controllers.collaboration_controller import Collaborations
+from server.controllers.auth_controller import SignUp, SignIn
 
 api.add_resource(Artists, '/artists')
 api.add_resource(ArtistByID, '/artists/<int:id>')

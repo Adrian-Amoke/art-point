@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request
-from models import Collaboration
-from config import db
+from server.models import Collaboration
+from server.config import db
 
 class Collaborations(Resource):
     def get(self):

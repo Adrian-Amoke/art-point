@@ -1,12 +1,12 @@
 from flask import request, jsonify
 from flask_restful import Resource
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import Artist
-from config import db
+from server.models import Artist
+from server.config import db
 import jwt
 import datetime
 from functools import wraps
-from config import app
+from server.config import app
 
 SECRET_KEY = "your_secret_key_here"
 

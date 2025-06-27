@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request
-from models import Artist
-from config import db
+from server.models import Artist
+from server.config import db
 
 class Artists(Resource):
     def get(self):

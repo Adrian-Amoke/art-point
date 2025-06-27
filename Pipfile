@@ -16,8 +16,8 @@ werkzeug = "*"
 sqlalchemy-serializer = "*"
 flask-migrate = "*"
 flask-script = "*"
-pyjwt = "*"
 flask-cli = "*"
+pyjwt = "*"
 
 [requires]
 python_full_version = "3.8.13"
