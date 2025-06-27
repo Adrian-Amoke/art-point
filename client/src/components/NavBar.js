@@ -1,18 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
-function NavBar() {
+function NavBar({ user, setUser }) {
+  const history = useHistory();
+
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    history.push("/");
+  };
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">ArtCollab</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link as={Link} to="/artists">Artists</Nav.Link>
-          <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
-          <Nav.Link as={Link} to="/collaborations">Collaborations</Nav.Link>
-          <Nav.Link as={Link} to="/new-artist">New Artist</Nav.Link>
-          <Nav.Link as={Link} to="/new-project">New Project</Nav.Link>
+          <Link className="nav-link" to="/artists">Artists</Link>
+          <Link className="nav-link" to="/projects">Projects</Link>
+          <Link className="nav-link" to="/collaborations">Collaborations</Link>
+          {user && (
+            <Link className="nav-link" to="/new-project">New Project</Link>
+          )}
+        </Nav>
+        <Nav className="ms-auto">
+          {!user && (
+            <>
+              <Link className="nav-link" to="/signin">Sign In</Link>
+              <Link className="nav-link" to="/signup">Sign Up</Link>
+            </>
+          )}
+          {user && (
+            <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
+          )}
         </Nav>
       </Container>
     </Navbar>

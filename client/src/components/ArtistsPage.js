@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function ArtistsPage() {
+function ArtistsPage({ user }) {
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {

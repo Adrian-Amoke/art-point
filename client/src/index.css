@@ -1,0 +1,48 @@
+/* Custom CSS for vibrant art-point theme */
+
+body {
+  background-color: #fff8f0;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-dark {
+  background-color: #ff6f61; /* Vibrant coral */
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-dark .nav-link:hover,
+.navbar-dark .nav-link:focus {
+  color: #ffe0d6;
+  text-decoration: underline;
+}
+
+.container {
+  padding: 20px;
+}
+
+h2 {
+  color: #d94f3d;
+}
+
+.list-group-item {
+  background-color: #fff0e6;
+  border: 1px solid #ffb3a7;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.list-group-item h5 {
+  color: #b33a2f;
+}
+
+.list-group-item p {
+  color: #66332f;
+}
