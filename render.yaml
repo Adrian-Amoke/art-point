@@ -1,18 +1,4 @@
-services:
-  - type: web
-    name: art-point-backend
-    env: python
-    plan: free
-    buildCommand: pipenv install
-    startCommand: pipenv run python server/app.py
-    envVars:
-      - key: FLASK_ENV
-        value: production
-      
-
-  - type: static-site
-    name: art-point-frontend
-    env: static
-    plan: free
-    buildCommand: cd client && npm install && npm run build
-    staticPublishPath: client/build
+service: web
+env: python
+buildCommand: pip install -r requirements.txt
+startCommand: export FLASK_APP=server.app && flask run --host=0.0.0.0 --port=5555
