@@ -5,7 +5,13 @@ from config import db
 
 class Projects(Resource):
     def get(self):
-        return [p.to_dict() for p in Project.query.all()], 200
+        projects = Project.query.all()
+        result = []
+        for p in projects:
+            proj_dict = p.to_dict()
+            proj_dict['artist_name'] = p.artist.name if p.artist else None
+            result.append(proj_dict)
+        return result, 200
 
     def post(self):
         data = request.get_json()

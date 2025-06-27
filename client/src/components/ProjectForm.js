@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 
-function ProjectForm() {
-  const [artists, setArtists] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5555/artists")
-      .then((res) => res.json())
-      .then(setArtists);
-  }, []);
-
+function ProjectForm({ user }) {
   const formik = useFormik({
     initialValues: {
       title: "",
       description: "",
       medium: "",
-      artist_id: "",
+      artist_id: user ? user.id : "",
     },
     onSubmit: (values) => {
       fetch("http://localhost:5555/projects", {
@@ -44,17 +36,6 @@ function ProjectForm() {
       <div className="mb-3">
         <label htmlFor="medium" className="form-label">Medium:</label>
         <input id="medium" name="medium" type="text" className="form-control" onChange={formik.handleChange} value={formik.values.medium} />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="artist_id" className="form-label">Artist:</label>
-        <select id="artist_id" name="artist_id" className="form-select" onChange={formik.handleChange} value={formik.values.artist_id}>
-          <option value="">Select Artist</option>
-          {artists.map((artist) => (
-            <option key={artist.id} value={artist.id}>
-              {artist.name}
-            </option>
-          ))}
-        </select>
       </div>
       <button type="submit" className="btn btn-primary">Submit</button>
     </form>

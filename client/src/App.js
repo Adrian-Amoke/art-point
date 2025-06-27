@@ -41,11 +41,11 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <HomePage {...props} user={user} />} />
           <Route path="/artists" render={(props) => <ArtistsPage {...props} user={user} />} />
-          <Route path="/projects" component={ProjectsPage} />
+          <Route path="/projects" render={(props) => <ProjectsPage {...props} user={user} />} />
           <Route path="/collaborations" component={CollaborationsPage} />
           <Route path="/signin" render={(props) => <SignIn {...props} setUser={setUser} />} />
           <Route path="/signup" render={(props) => <SignUp {...props} setUser={setUser} />} />
-          <Route path="/new-project" component={ProjectForm} />
+          <Route path="/new-project" render={(props) => <ProjectForm {...props} user={user} />} />
         </Switch>
       </div>
     </Router>
