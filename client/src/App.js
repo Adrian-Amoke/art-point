@@ -51,6 +51,8 @@ function App() {
           <Route path="/new-project" render={(props) => <ProjectForm {...props} user={user} />} />
           <Route path="/my-projects" render={(props) => <MyProjectsPage {...props} user={user} />} />
           <Route path="/my-collaborations" render={(props) => <MyCollaborationsPage {...props} user={user} />} />
+          <Route path="/projects/edit/:id" render={(props) => <ProjectForm {...props} user={user} editMode={true} />} />
+          <Route path="/collaborations/edit/:id" render={(props) => <CollaborationEditForm {...props} user={user} />} />
         </Switch>
       </div>
     </Router>
