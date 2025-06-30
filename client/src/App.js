@@ -8,6 +8,8 @@ import ProjectForm from "./components/ProjectForm";
 import HomePage from "./components/HomePage";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import MyProjectsPage from "./components/MyProjectsPage";
+import MyCollaborationsPage from "./components/MyCollaborationsPage";
 import API_BASE_URL from "./config";
 
 function App() {
@@ -47,6 +49,8 @@ function App() {
           <Route path="/signin" render={(props) => <SignIn {...props} setUser={setUser} />} />
           <Route path="/signup" render={(props) => <SignUp {...props} setUser={setUser} />} />
           <Route path="/new-project" render={(props) => <ProjectForm {...props} user={user} />} />
+          <Route path="/my-projects" render={(props) => <MyProjectsPage {...props} user={user} />} />
+          <Route path="/my-collaborations" render={(props) => <MyCollaborationsPage {...props} user={user} />} />
         </Switch>
       </div>
     </Router>

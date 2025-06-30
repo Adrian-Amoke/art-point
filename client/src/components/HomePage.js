@@ -7,11 +7,14 @@ function HomePage({ user }) {
     <div className="container mt-4">
       <h1>Welcome to ArtCollab</h1>
       <p>This is the home page of the ArtCollab application.</p>
-      <p>Use the navigation bar to explore Artists, Projects, and Collaborations.</p>
+      <p>Use the navigation bar to explore your projects and collaborations.</p>
       <ul>
-        <li><Link to="/artists">Artists</Link></li>
-        <li><Link to="/projects">Projects</Link></li>
-        <li><Link to="/collaborations">Collaborations</Link></li>
+        {user && (
+          <>
+            <li><Link to="/my-projects">My Projects</Link></li>
+            <li><Link to="/my-collaborations">My Collaborations</Link></li>
+          </>
+        )}
       </ul>
       {user && <UserProfile user={user} />}
     </div>
