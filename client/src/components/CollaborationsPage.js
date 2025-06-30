@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import API_BASE_URL from "../config";
 
-function CollaborationsPage() {
+function CollaborationsPage({ user }) {
   const [collaborations, setCollaborations] = useState([]);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/collaborations`)
+    if (!user) return;
+    fetch(`${API_BASE_URL}/collaborations?artist_id=${user.id}`)
       .then((res) => res.json())
       .then(setCollaborations);
-  }, []);
+  }, [user]);
+
+  if (!user) {
+    return <p>Please sign in to view your collaborations.</p>;
+  }
 
   return (
     <div className="container mt-4">
