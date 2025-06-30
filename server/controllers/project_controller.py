@@ -5,7 +5,11 @@ from server.config import db
 
 class Projects(Resource):
     def get(self):
-        projects = Project.query.all()
+        artist_id = request.args.get('artist_id')
+        if artist_id:
+            projects = Project.query.filter_by(artist_id=artist_id).all()
+        else:
+            projects = Project.query.all()
         result = []
         for p in projects:
             proj_dict = p.to_dict()

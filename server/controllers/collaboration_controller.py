@@ -5,7 +5,11 @@ from server.config import db
 
 class Collaborations(Resource):
     def get(self):
-        collaborations = Collaboration.query.all()
+        artist_id = request.args.get('artist_id')
+        if artist_id:
+            collaborations = Collaboration.query.filter_by(artist_id=artist_id).all()
+        else:
+            collaborations = Collaboration.query.all()
         result = []
         for c in collaborations:
             collab_dict = c.to_dict()
@@ -26,3 +30,22 @@ class Collaborations(Resource):
         db.session.add(collaboration)
         db.session.commit()
         return collaboration.to_dict(), 201
+
+class CollaborationByID(Resource):
+    def get(self, id):
+        collaboration = Collaboration.query.get(id)
+        return collaboration.to_dict(), 200
+
+    def patch(self, id):
+        data = request.get_json()
+        collaboration = Collaboration.query.get(id)
+        for attr in data:
+            setattr(collaboration, attr, data[attr])
+        db.session.commit()
+        return collaboration.to_dict(), 200
+
+    def delete(self, id):
+        collaboration = Collaboration.query.get(id)
+        db.session.delete(collaboration)
+        db.session.commit()
+        return {}, 204
