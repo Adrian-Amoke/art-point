@@ -12,7 +12,12 @@ function CollaborationEditForm({ user }) {
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/collaborations/${id}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch collaboration data");
+        }
+        return res.json();
+      })
       .then((data) => {
         setContributionNote(data.contribution_note || "");
         setToolUsed(data.tool_used || "");
