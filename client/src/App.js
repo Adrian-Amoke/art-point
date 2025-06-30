@@ -45,6 +45,8 @@ function App() {
         <Switch>
           <Route exact path="/" render={(props) => <HomePage {...props} user={user} />} />
           <Route path="/artists" render={(props) => <ArtistsPage {...props} user={user} />} />
+          <Route path="/projects/edit/:id" render={(props) => <ProjectForm {...props} user={user} editMode={true} />} />
+          <Route path="/collaborations/edit/:id" render={(props) => <CollaborationEditForm {...props} user={user} />} />
           <Route path="/projects" render={(props) => <ProjectsPage {...props} user={user} />} />
           <Route path="/collaborations" render={(props) => <CollaborationsPage {...props} user={user} />} />
           <Route path="/signin" render={(props) => <SignIn {...props} setUser={setUser} />} />
@@ -52,8 +54,6 @@ function App() {
           <Route path="/new-project" render={(props) => <ProjectForm {...props} user={user} />} />
           <Route path="/my-projects" render={(props) => <MyProjectsPage {...props} user={user} />} />
           <Route path="/my-collaborations" render={(props) => <MyCollaborationsPage {...props} user={user} />} />
-          <Route path="/projects/edit/:id" render={(props) => <ProjectForm {...props} user={user} editMode={true} />} />
-          <Route path="/collaborations/edit/:id" render={(props) => <CollaborationEditForm {...props} user={user} />} />
         </Switch>
       </div>
     </Router>
