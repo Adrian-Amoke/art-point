@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import CollaborationForm from "./CollaborationForm";
 import API_BASE_URL from "../config";
 
 function MyProjectsPage({ user }) {
   const [projects, setProjects] = useState([]);
   const [showFormForProject, setShowFormForProject] = useState(null);
-  const navigate = useNavigate();
+  const history = useHistory();
 
   useEffect(() => {
     if (!user) return;
@@ -23,12 +23,12 @@ function MyProjectsPage({ user }) {
     setShowFormForProject(null);
   };
 
-  const handleFormSuccess = (newCollaboration) => {
+  const handleFormSuccess = () => {
     alert("Collaboration submitted successfully!");
   };
 
   const handleEdit = (projectId) => {
-    navigate(`/projects/edit/${projectId}`);
+    history.push(`/projects/edit/${projectId}`);
   };
 
   const handleDelete = async (projectId) => {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import API_BASE_URL from "../config";
 
 function MyCollaborationsPage({ user }) {
   const [collaborations, setCollaborations] = useState([]);
-  const navigate = useNavigate();
+  const history = useHistory();
 
   useEffect(() => {
     if (!user) return;
@@ -14,7 +14,7 @@ function MyCollaborationsPage({ user }) {
   }, [user]);
 
   const handleEdit = (collabId) => {
-    navigate(`/collaborations/edit/${collabId}`);
+    history.push(`/collaborations/edit/${collabId}`);
   };
 
   const handleDelete = async (collabId) => {
