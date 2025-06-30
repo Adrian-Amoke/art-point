@@ -10,6 +10,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import MyProjectsPage from "./components/MyProjectsPage";
 import MyCollaborationsPage from "./components/MyCollaborationsPage";
+import CollaborationEditForm from "./components/CollaborationEditForm";
 import API_BASE_URL from "./config";
 
 function App() {
