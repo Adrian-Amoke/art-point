@@ -19,10 +19,14 @@ Art Point is a full-stack web application that allows artists to showcase their 
 
 ## Features
 
-- User authentication (sign up, sign in)
-- Artist profiles and listings
-- Project creation and management
-- Collaboration requests on projects
+- User authentication (sign up, sign in with JWT token authentication)
+- Artist management:
+  - Create, read, update, and delete artist profiles
+- Project management:
+  - Create, read, update, and delete projects
+- Collaboration management:
+  - Create and list collaborations with contribution notes and tools used
+  - View related artist and project details in collaborations
 - Responsive and modern UI with React
 
 ## Local Setup
@@ -55,7 +59,7 @@ flask db upgrade head
 python app.py
 ```
 
-The backend API will be available at `http://localhost:5555`.
+The backend API will be available at `https://art-point1.onrender.com`.
 
 ### Frontend
 
@@ -77,4 +81,4 @@ npm install
 npm start
 ```
 
-The frontend will be available at `http://localhost:3000`.
+The frontend will be available at `https://art-point-psi.vercel.app/`.
