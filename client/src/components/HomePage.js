@@ -5,8 +5,8 @@ import UserProfile from "./UserProfile";
 function HomePage({ user }) {
   return (
     <div className="container mt-4">
-      <h1>Welcome to ArtCollab</h1>
-      <p>This is the home page of the ArtCollab application.</p>
+      <h1>Welcome to Art Point</h1>
+      <p>This is the home page of the Art Point application.</p>
       <p>Use the navigation bar to explore your projects and collaborations.</p>
       <ul>
         {user ? (

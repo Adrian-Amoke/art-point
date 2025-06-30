@@ -26,7 +26,7 @@ CORS(app)
 
 from server.controllers.artist_controller import Artists, ArtistByID
 from server.controllers.project_controller import Projects, ProjectByID
-from server.controllers.collaboration_controller import Collaborations
+from server.controllers.collaboration_controller import Collaborations, CollaborationByID
 from server.controllers.auth_controller import SignUp, SignIn
 
 api.add_resource(Artists, '/artists')
@@ -34,6 +34,7 @@ api.add_resource(ArtistByID, '/artists/<int:id>')
 api.add_resource(Projects, '/projects')
 api.add_resource(ProjectByID, '/projects/<int:id>')
 api.add_resource(Collaborations, '/collaborations')
+api.add_resource(CollaborationByID, '/collaborations/<int:id>')
 
 api.add_resource(SignUp, '/signup')
 api.add_resource(SignIn, '/signin')
