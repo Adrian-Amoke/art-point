@@ -14,7 +14,7 @@ function NavBar({ user, setUser }) {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" >
       <Container>
-        <Navbar.Brand as={Link} to="/">ArtCollab</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Art Point</Navbar.Brand>
         <Navbar.Toggle aria-controls="nav" />
 
         <Nav className="me-auto">
