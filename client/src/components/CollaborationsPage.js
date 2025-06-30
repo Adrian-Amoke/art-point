@@ -5,11 +5,10 @@ function CollaborationsPage({ user }) {
   const [collaborations, setCollaborations] = useState([]);
 
   useEffect(() => {
-    if (!user) return;
-    fetch(`${API_BASE_URL}/collaborations?artist_id=${user.id}`)
+    fetch(`${API_BASE_URL}/collaborations`)
       .then((res) => res.json())
       .then(setCollaborations);
-  }, [user]);
+  }, []);
 
   if (!user) {
     return <p>Please sign in to view your collaborations.</p>;

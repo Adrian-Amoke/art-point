@@ -7,11 +7,10 @@ function ProjectsPage({ user }) {
   const [showFormForProject, setShowFormForProject] = useState(null);
 
   useEffect(() => {
-  if (!user) return;
-  fetch(`${API_BASE_URL}/projects?artist_id=${user.id}`)
-    .then((res) => res.json())
-    .then(setProjects);
-}, [user]);
+    fetch(`${API_BASE_URL}/projects`)
+      .then((res) => res.json())
+      .then(setProjects);
+  }, []);
 
   const handleContributeClick = (projectId) => {
     setShowFormForProject(projectId);
